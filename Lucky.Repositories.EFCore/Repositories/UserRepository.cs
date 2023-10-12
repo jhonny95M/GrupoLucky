@@ -17,5 +17,10 @@ namespace Lucky.Repositories.EFCore.Repositories
         }
         public async Task CreateAsync(User user)=>
             await _context.AddAsync(user);
+
+        public Task<IEnumerable<User>> GetAll()
+        {
+          return Task.FromResult(_context.Users.AsEnumerable());
+        }
     }
 }

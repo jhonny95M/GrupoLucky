@@ -9,5 +9,6 @@ namespace Lucky.Entities.Interfaces
     public interface IUserRepository
     {
         Task CreateAsync(User user);
+        Task<IEnumerable<User>> GetAll();
     }
 }

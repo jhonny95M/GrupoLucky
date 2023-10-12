@@ -1,5 +1,6 @@
 ﻿using Lucky.Entities;
 using Lucky.UseCases.CreateUser;
+using Lucky.UseCases.ReadUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,9 +20,9 @@ namespace Lucky.WebApi.Controllers
         }
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(mediator.Send(new ReadUserOuputPortQuery()));
         }
 
         // GET api/<UserController>/5
